@@ -1,0 +1,161 @@
+/* Base Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+/* Frame for each day */
+.day-frame {
+    background-color: #f0f4f8; /* subtle background */
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    text-align: left; /* align content to the left */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Task items inside the frame */
+.task-item {
+    background-color: #eaf4fc;
+    border-left: 5px solid #85bbf9;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.complete-btn {
+    background-color: #4CAF50;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Header */
+h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #4a90e2;
+    margin-bottom: 25px;
+}
+
+/* Task List */
+#tasks {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+#tasks div {
+    background-color: #eaf4fc;
+    border-left: 5px solid #4a90e2;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Input Controls */
+.task-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Common Button Styles */
+button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Specific Buttons */
+#addTaskBtn {
+    background-color: #4a90e2; /* blue */
+}
+
+#randomTaskBtn {
+    background-color: #F5A623; /* bright orange */
+}
+
+#randomTaskBtn:hover {
+    background-color: #D48820;
+}
+
+#clearBtn {
+    background-color: #f56c6c; /* red */
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧠 ADHD Task Manager</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 ADHD Task Manager</h1>
+
+    <div id="tasks">
+      <!-- Task list populated dynamically -->
+    </div>
+
+    <div class="task-controls">
+      <input type="text" id="taskName" placeholder="Enter task name">
+      <select id="day">
+        <option value="today">Today</option>
+        <option value="tomorrow">Tomorrow</option>
+      </select>
+      <select id="priority">
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <div class="buttons">
+        <button id="addTaskBtn" onclick="addTask()">Add Task</button>
+        <button id="clearBtn" onclick="clearDay()">Clear All</button>
+        <button id="randomTaskBtn" onclick="getRandomTask()">Get Random Task</button>
+      </div>
+    </div>
+  </div>
+      <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h3>Random Task</h3>
+            <p id="modalTaskText"></p>
+            <div class="modal-buttons">
+                <button id="completeTaskBtn" class="complete-btn">Complete Task</button>
+                <button id="cancelTaskBtn" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
