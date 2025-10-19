@@ -1,104 +1,57 @@
 /* Base Styles */
+
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f5f7fa;
+    font-family: 'Baloo 2' ,Helvetica Neue, Arial, sans-serif;
+    background-color: #f5f5dc;
     color: #333;
     display: flex;
     justify-content: center;
     padding: 20px;
 }
 
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1000;
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-/* Frame for each day */
-.day-frame {
-    background-color: #f0f4f8; /* subtle background */
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    text-align: left; /* align content to the left */
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-/* Task items inside the frame */
-.task-item {
-    background-color: #eaf4fc;
-    border-left: 5px solid #85bbf9;
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-.modal-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-.complete-btn {
-    background-color: #4CAF50;
-}
-
-.cancel-btn {
-    background-color: #f44336;
-}
-
+/* Container */
 .container {
-    background-color: #ffffff;
+    background-color: #C7E0A0; /* soft matcha green */
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px 40px;
+    padding: 20px 30px;
     max-width: 400px;
     width: 100%;
+    font-size: 1rem;
 }
 
 /* Header */
 h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     text-align: center;
-    color: #4a90e2;
+    color: #6B8E23; /* darker matcha green */
     margin-bottom: 25px;
+    font-family: 'Baloo 2', sans-serif;
 }
 
-/* Task List */
-#tasks {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 20px;
+/* Day Frames */
+.day-frame {
+    background-color: #EFF6E0; /* light matcha cream */
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: left;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-#tasks div {
-    background-color: #eaf4fc;
-    border-left: 5px solid #4a90e2;
+/* Task items */
+.task-item {
+    background-color: #F6EFEF; /* light strawberry cream */
+    border-left: 5px solid #A3C859; /* matcha green accent */
     padding: 10px 15px;
     margin-bottom: 10px;
     border-radius: 8px;
     font-size: 1rem;
+    white-space: pre;
 }
 
-/* Input Controls */
+/* Task Controls */
 .task-controls {
     display: flex;
     flex-direction: column;
@@ -106,8 +59,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-input[type="text"],
-select {
+input[type="text"] {
     padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
@@ -115,10 +67,9 @@ select {
     outline: none;
 }
 
-input[type="text"]:focus,
-select:focus {
-    border-color: #4a90e2;
-    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+input[type="text"]:focus {
+    border-color: #F7C2C4; /* soft strawberry pink focus */
+    box-shadow: 0 0 5px rgba(107, 142, 35, 0.5); /* matcha green shadow */
 }
 
 /* Buttons Container */
@@ -139,23 +90,152 @@ button {
     color: #fff;
 }
 
+.floating-spotify {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #1DB954; /* Spotify green */
+    z-index: 1000;
+    border-radius: 12px;
+    border-color: #587819;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.floating-spotify iframe {
+    border-radius: 12px;
+}
+
 button:hover {
     opacity: 0.9;
 }
 
 /* Specific Buttons */
 #addTaskBtn {
-    background-color: #4a90e2; /* blue */
+    background-color: #6B8E23; /* matcha green */
+    font-family: 'Baloo 2', sans-serif;
 }
 
 #randomTaskBtn {
-    background-color: #F5A623; /* bright orange */
-}
-
-#randomTaskBtn:hover {
-    background-color: #D48820;
+    background-color: #F8D1D3; /* soft strawberry pink */
+    color: #333; /* darker text for contrast */
+    font-family: 'Baloo 2', sans-serif;
 }
 
 #clearBtn {
-    background-color: #f56c6c; /* red */
+    background-color: #A3C859; /* lighter matcha green */
+    font-family: 'Baloo 2', sans-serif;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.floating-clock {
+    position: fixed;     /* makes it stick to the viewport */
+    top: 20px;           /* distance from the top */
+    right: 20px;         /* distance from the right */
+    background-color: #C7E0A0; /* matcha green or whatever you like */
+    color: #F2F0EF;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 4rem;
+    font-style: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;       /* stay on top of other elements */
+}
+
+.modal-content {
+    background-color: #F8D1D3; /* soft strawberry modal */
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.complete-btn {
+    background-color: #6B8E23; /* matcha green */
+}
+
+.cancel-btn {
+    background-color: #F76C6C; /* strawberry red */
+}
+
+/* Custom Select */
+.custom-select {
+    position: relative;
+    width: 200px;
+    border: 2px solid #333;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 5px;
+    gap: 3px;
+}
+
+.custom-select .selected {
+    padding: 10px 12px;
+    transition: background 0.3s ease;
+    font-family: 'Baloo 2', sans-serif;
+}
+
+.custom-select .selected:hover {
+    background: #F8D1D3; /* soft pink hover */
+}
+
+.custom-select .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #A3C859; /* matcha green border */
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.custom-select.active .options {
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-select .options div {
+    padding: 10px;
+    transition: background 0.2s;
+}
+
+.custom-select .options div:hover {
+    background: #F8D1D3; /* soft pink hover for options */
+}
+
+.day-frame h2 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.6rem;
+  color: #6B8E23; /* matcha green tone to fit your theme */
+  margin: 0 2px 6px 0; /* no space above, small gap below */
+  padding: 0;
+  text-align: left;
+  line-height: 1.1;
+  letter-spacing: 1px;
 }

@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🧠 ADHD Task Manager</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+  <div id="clock" class="floating-clock"></div>
+  <div id="spotify-player" class="floating-spotify">
+    <iframe 
+      src="https://open.spotify.com/embed/track/04boE4u1AupbrGlI62WvoO?si=f9b32dab5dfa4a98" 
+      width="280" 
+      height="90" 
+      frameborder="0" 
+      allowtransparency="true" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading = "lazy">
+    </iframe>
+  </div>
   <div class="container">
     <h1>🧠 ADHD Task Manager</h1>
 
@@ -16,14 +29,26 @@
 
     <div class="task-controls">
       <input type="text" id="taskName" placeholder="Enter task name">
-      <select id="day">
-        <option value="today">Today</option>
-        <option value="tomorrow">Tomorrow</option>
-      </select>
-      <select id="priority">
-        <option value="medium">Medium</option>
-        <option value="high">High</option>
-      </select>
+
+      <!-- Day Select Dropdown -->
+      <div class="custom-select" id="daySelect">
+        <div class="selected" data-value="today">Today</div>
+        <div class="options">
+          <div data-value="today">Today</div>
+          <div data-value="tomorrow">Tomorrow</div>
+        </div>
+      </div>
+
+      <!-- Priority Select Dropdown -->
+      <div class="custom-select" id="prioritySelect">
+        <div class="selected" data-value="medium">Medium</div>
+        <div class="options">
+          <div data-value="medium">Medium</div>
+          <div data-value="high">High</div>
+        </div>
+      </div>
+
+      <!-- Buttons -->
       <div class="buttons">
         <button id="addTaskBtn" onclick="addTask()">Add Task</button>
         <button id="clearBtn" onclick="clearDay()">Clear All</button>
@@ -31,16 +56,18 @@
       </div>
     </div>
   </div>
-      <div id="taskModal" class="modal">
-        <div class="modal-content">
-            <h3>Random Task</h3>
-            <p id="modalTaskText"></p>
-            <div class="modal-buttons">
-                <button id="completeTaskBtn" class="complete-btn">Complete Task</button>
-                <button id="cancelTaskBtn" class="cancel-btn">Cancel</button>
-            </div>
-        </div>
+
+  <!-- Modal -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <h3>Random Task</h3>
+      <p id="modalTaskText"></p>
+      <div class="modal-buttons">
+        <button id="completeTaskBtn" class="complete-btn">Complete Task</button>
+        <button id="cancelTaskBtn" class="cancel-btn">Cancel</button>
+      </div>
     </div>
+  </div>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
