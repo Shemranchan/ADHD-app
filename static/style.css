@@ -233,7 +233,7 @@ button:hover {
   font-family: 'Baloo 2', cursive;
   font-size: 1.6rem;
   color: #6B8E23; /* matcha green tone to fit your theme */
-  margin: 0 2px 6px 0; /* no space above, small gap below */
+  margin: 0 0px 8px 0; /* no space above, small gap below */
   padding: 0;
   text-align: left;
   line-height: 1.1;
