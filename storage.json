@@ -1,21 +1,5 @@
 {
     "today": [],
-    "tomorrow": [
-        {
-            "task": "he",
-            "date": "2025-10-18",
-            "priority": "medium"
-        },
-        {
-            "task": "s",
-            "date": "2025-10-19",
-            "priority": "medium"
-        },
-        {
-            "task": "asd",
-            "date": "2025-10-19",
-            "priority": "medium"
-        }
-    ],
+    "tomorrow": [],
     "priority": []
 }

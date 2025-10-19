@@ -34,10 +34,12 @@ def remove_task_api():
     return jsonify({"result": result})
 
 # --- Clear all tasks ---
-@app.route("/clear/<day>", methods=["POST"])
-def clear_day(day):
-    tasks.clear_tasks(day)
-    return jsonify({"status": f"Cleared tasks for {day}."})
+@app.route("/clear", methods=["POST"])
+def clear_all_tasks():
+    from tasks import clear_tasks
+    clear_tasks()  # clears both today and tomorrow
+    return jsonify({"success": True})
+
 
 @app.route("/random_task")
 def get_random_task_api():

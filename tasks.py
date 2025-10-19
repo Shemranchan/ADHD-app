@@ -109,11 +109,13 @@ def get_random_task(day="today"):
 
     return random.choice(weighted_list)
 
-# --- Clear all tasks for a day ---
-def clear_tasks(day="today"):
+def clear_tasks(day=None):
     """
-    Clears all tasks for the specified day.
+    Clears all tasks for the specified day (today/tomorrow), or both if None.
     """
     data = load_tasks()
-    data[day] = []
+
+    for day in ["today", "tomorrow"]:
+        if day in ["today", "tomorrow"]:
+            data[day] = []
     save_tasks(data)

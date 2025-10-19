@@ -133,11 +133,12 @@ function closeModal() {
 }
 
 // Clear all tasks for a day
+// Clear all tasks for both today and tomorrow
 async function clearDay() {
-    const day = getCustomSelectValue('daySelect');
-    await fetch(`/clear/${day}`, {method: "POST"});
-    fetchTasks();
+    await fetch("/clear", { method: "POST" }); // call backend route that clears both
+    fetchTasks(); // refresh tasks on frontend
 }
+
 
 // Custom select logic
 function getCustomSelectValue(selectId) {
@@ -174,15 +175,10 @@ function setupCustomDropdown(selectId) {
 document.addEventListener('DOMContentLoaded', () => {
     setupCustomDropdown('prioritySelect');
     setupCustomDropdown('daySelect');
+    
+    fetchTasks();
 
     document.getElementById("completeTaskBtn").addEventListener("click", completeTask);
     document.getElementById("cancelTaskBtn").addEventListener("click", closeModal);
-
-    window.addEventListener("click", (event) => {
-        const modal = document.getElementById("taskModal");
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
-    fetchTasks();
+    document.getElementById("addTaskBtn").addEventListener("click", addTask);
 });
