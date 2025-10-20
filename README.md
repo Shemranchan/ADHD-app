@@ -1,6 +1,6 @@
 A simple, focused, and modern web app built to help users with ADHD manage daily tasks with visual structure, priority sorting, and clear reminders.
 
-This project is lightweight and designed to run locally using HTML, CSS, and JavaScript (Flask optional for backend).
+This project is lightweight and designed to run locally using HTML, CSS, JavaScript and Flask.
 
 The ADHD Task Manager was designed to help kids and teens with ADHD stay organized in a simple, non-overwhelming way. 
 Traditional task apps can feel cluttered or stressful — full of features that distract more than they help. This app keeps 
