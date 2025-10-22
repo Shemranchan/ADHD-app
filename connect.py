@@ -1,12 +1,13 @@
 from flask import Flask, render_template, jsonify, request
 import tasks
+import os
 
 app = Flask(__name__)
 
 # --- Homepage ---
 @app.route("/")
 def index():
-    return render_template("front.html")  # our new modern HTML
+    return render_template("index.html")  # our new modern HTML
 
 # --- Get all tasks ---
 @app.route("/tasks", methods=["GET"])
@@ -47,6 +48,9 @@ def get_random_task_api():
     task = tasks.get_random_task(day=day)
     return jsonify(task if task else {"task": None})
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Use PORT environment variable for Vercel
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
 
