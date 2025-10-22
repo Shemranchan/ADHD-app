@@ -15,5 +15,9 @@
       "src": "/(.*)",
       "dest": "connect.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHONPATH": ".",
+    "FLASK_ENV": "production"
+  }
 }
