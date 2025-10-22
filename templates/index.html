@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
 <head>
-  <link rel="stylesheet" href="/static/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🧠 ADHD Task Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Remove duplicate and use url_for helper -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+// ...existing code...
 <body>
   <div id="clock" class="floating-clock"></div>
   <div id="spotify-player" class="floating-spotify">
