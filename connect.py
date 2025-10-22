@@ -9,7 +9,7 @@ app = Flask(__name__,
            static_url_path='/static',
            template_folder='templates')
 
-logger = create_logger(app)
+app.config['DEBUG'] = True
 # --- Homepage ---
 @app.route("/", methods=['GET'])
 def index():
