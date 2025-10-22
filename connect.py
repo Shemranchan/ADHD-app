@@ -1,19 +1,34 @@
 from flask import Flask, render_template, jsonify, request
+from flask.logging import create_logger
 import tasks
 import os
+import sys
 
-app = Flask(__name__)
+app = Flask(__name__,
+           static_folder='static',
+           static_url_path='/static',
+           template_folder='templates')
 
+logger = create_logger(app)
 # --- Homepage ---
-@app.route("/")
+@app.route("/", methods=['GET'])
 def index():
-    return render_template("index.html")  # our new modern HTML
-
+    try:
+        return render_template("index.html")
+    except Exception as e:
+        logger.error(f"Error rendering index: {str(e)}")
+        return str(e), 500
 # --- Get all tasks ---
 @app.route("/tasks", methods=["GET"])
 def get_tasks():
-    data = tasks.load_tasks()
-    return jsonify(data)
+    try:
+        data = tasks.load_tasks()
+        return jsonify(data)
+    except Exception as e:
+        logger.error(f"Error loading tasks: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+app.debug = True
 
 # --- Add a new task ---
 @app.route("/tasks", methods=["POST"])
